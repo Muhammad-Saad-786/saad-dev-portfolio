@@ -287,9 +287,10 @@ const Footer = () => {
         {/* Copyright */}
         <div className="w-full border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between text-gray-500 font-medium text-sm">
           <p>© Saad Asim 2026. All rights reserved.</p>
-          <p className="mt-4 md:mt-0 flex items-center gap-2">
-            Built with React &{" "}
-            <span className="text-red-500 animate-pulse">❤️</span>
+
+          <p className="mt-4 md:mt-0 font-mono text-teal-500">
+            <span className="text-gray-600">$</span> npm run build
+            <span className="ml-2 animate-pulse cursor">▋</span>
           </p>
         </div>
       </div>
