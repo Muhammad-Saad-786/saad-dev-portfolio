@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { ArrowRight, Mail } from "lucide-react";
 import { gsap } from "gsap";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const codeBracketRef = useRef(null);
@@ -95,7 +96,7 @@ const Hero = () => {
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="#projects"
+              href="/projects"
               className="flex items-center justify-center gap-2 px-8 py-4 bg-gray-900 text-white rounded-xl font-bold hover:bg-indigo-600 transition-all shadow-lg hover:shadow-indigo-500/25"
             >
               View My Projects
@@ -104,7 +105,7 @@ const Hero = () => {
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="#contact"
+              href="/contact"
               className="flex items-center justify-center gap-2 px-8 py-4 bg-white text-gray-900 border-2 border-gray-200 rounded-xl font-bold hover:border-indigo-600 transition-all hover:bg-slate-50"
             >
               <Mail className="w-5 h-5" />

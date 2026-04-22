@@ -53,13 +53,13 @@ const Footer = () => {
   const socialLinks = [
     {
       src: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg",
-      href: "https://github.com/yourusername",
+      href: "https://github.com/Muhammad-Saad-786",
       label: "GitHub",
       filter: "invert(1)",
     },
     {
       src: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg",
-      href: "https://linkedin.com/in/yourusername",
+      href: "https://www.linkedin.com/in/immuhammadsaad",
       label: "LinkedIn",
       filter: "invert(1)",
     },
@@ -118,17 +118,19 @@ const Footer = () => {
               value: "saadasimmalik@gmail.com",
               href: "mailto:saadasim@gmail.com",
             },
-            { icon: MapPin, title: "Location", value: "Pakistan", href: "#" },
+            { icon: MapPin, title: "Location", value: "Pakistan" },
             {
               icon: Phone,
-              title: "Phone",
-              value: "+92 300 1234567",
-              href: "tel:+923001234567",
+              title: "WhatsApp",
+              value: "Chat on WhatsApp",
+              href: "https://wa.me/923095909052",
+              target: "_blank",
             },
           ].map((item, index) => (
             <motion.a
               key={index}
               href={item.href}
+              target={item.target}
               whileHover={{ scale: 1.02, y: -5 }}
               className="p-6 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl hover:border-indigo-500/50 transition-all group"
             >

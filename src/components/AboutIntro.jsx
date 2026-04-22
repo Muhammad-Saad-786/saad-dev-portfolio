@@ -4,7 +4,10 @@ import { CheckCircle, Terminal, Cpu } from "lucide-react";
 
 const AboutIntro = () => {
   return (
-    <section className="py-24 bg-white border-y border-gray-100 overflow-hidden relative">
+    <section
+      id="about"
+      className="py-24 bg-white border-y border-gray-100 overflow-hidden relative"
+    >
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-fuchsia-100 rounded-full blur-[120px] -z-10 mix-blend-multiply opacity-50" />
       <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-teal-50 rounded-full blur-[120px] -z-10 mix-blend-multiply opacity-50" />
 
@@ -30,7 +33,7 @@ const AboutIntro = () => {
               <p className="mb-2">
                 <span className="text-purple-500">import</span> {"{ AI }"}{" "}
                 <span className="text-purple-500">from</span> '
-                <span className="text-teal-500">@saad/ai</span>';
+                <span className="text-teal-500">@saadasim/ai</span>';
               </p>
               <p className="mb-2">
                 <span className="text-blue-500">const</span> app =

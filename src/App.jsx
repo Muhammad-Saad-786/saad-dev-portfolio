@@ -8,7 +8,8 @@ import ServicesGrid from "./components/ServicesGrid";
 import JourneyTimeline from "./components/JourneyTimeline";
 import Footer from "./components/Footer";
 import SmoothScroll from "./components/SmoothScroll";
-
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./components/HomePage";
 function App() {
   return (
     <SmoothScroll>
@@ -16,12 +17,14 @@ function App() {
         <Navbar />
 
         <main className="w-full">
-          <Hero />
-          <AboutIntro />
-          <Marquee />
-          <Projects />
-          <ServicesGrid />
-          <JourneyTimeline />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutIntro />} />
+            <Route path="/marquee" element={<Marquee />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/services" element={<ServicesGrid />} />
+            <Route path="/journey" element={<JourneyTimeline />} />
+          </Routes>
         </main>
 
         <Footer />
