@@ -8,7 +8,7 @@ import ServicesGrid from "./components/ServicesGrid";
 import JourneyTimeline from "./components/JourneyTimeline";
 import Footer from "./components/Footer";
 import SmoothScroll from "./components/SmoothScroll";
-import { Analytics } from "@vercel/analytics/react";
+
 function App() {
   return (
     <SmoothScroll>
