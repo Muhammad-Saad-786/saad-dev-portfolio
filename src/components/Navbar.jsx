@@ -39,7 +39,7 @@ const Navbar = () => {
           animate={{ opacity: 1, x: 0 }}
           className="text-2xl font-black tracking-tighter"
         >
-          <img src="../public/favicon.png" alt="logo" height="40" width="40" />
+          <img src="/favicon.png" alt="logo" height="40" width="40" />
         </motion.a>
 
         <ul className="hidden md:flex space-x-8 items-center">
