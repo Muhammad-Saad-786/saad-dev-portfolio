@@ -4,7 +4,7 @@ import { Briefcase, Crown, Rocket } from "lucide-react";
 
 const events = [
   {
-    date: "2025 - 2026",
+    date: "2025 - Present",
     title: "Founder, Saad Asim Dev Studio",
     desc: "Building AI-powered SaaS products. Leading full-stack MERN deployments and integrating OpenAI / RAG solutions.",
     icon: Rocket,
@@ -12,14 +12,14 @@ const events = [
   },
   {
     date: "2024 - 2025",
-    title: "Frontend Lead at Remote Agency",
-    desc: "Managed a team of developers to deliver high-performance React & Next.js applications with Framer Motion animations.",
+    title: "Frontend Developer at Xeven Solutions",
+    desc: "Worked at Xeven Solutions, specializing in React development and AI integrations, contributing to innovative projects and enhancing user experiences.",
     icon: Crown,
     color: "bg-purple-500",
   },
   {
-    date: "2024 - Now",
-    title: "Senior React & AI Freelancer",
+    date: "2023 - Now",
+    title: "Full Stack Developer & AI Freelancer",
     desc: "Developing custom solutions tailored to clients, specializing in AI automations and robust frontend architectures.",
     icon: Briefcase,
     color: "bg-teal-500",

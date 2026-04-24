@@ -22,31 +22,36 @@ const Footer = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission - Replace with your actual API endpoint
-    setTimeout(() => {
-      console.log("Form submitted:", formData);
-      setSubmitStatus("success");
-      setIsSubmitting(false);
-      setFormData({ name: "", email: "", message: "" });
+    try {
+      const response = await fetch(
+        "https://formsubmit.co/ajax/sm8004393@gmail.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(formData),
+        },
+      );
 
-      // Reset status after 5 seconds
+      if (response.ok) {
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+
+        // Reset status after 5 seconds
+        setTimeout(() => setSubmitStatus(null), 5000);
+      } else {
+        setSubmitStatus("error");
+        setTimeout(() => setSubmitStatus(null), 5000);
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      setSubmitStatus("error");
       setTimeout(() => setSubmitStatus(null), 5000);
-    }, 1500);
-
-    // For real implementation, use this:
-    // try {
-    //   const response = await fetch('/api/contact', {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify(formData)
-    //   });
-    //   if (response.ok) {
-    //     setSubmitStatus("success");
-    //     setFormData({ name: "", email: "", message: "" });
-    //   }
-    // } catch (error) {
-    //   setSubmitStatus("error");
-    // }
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // Social links data
