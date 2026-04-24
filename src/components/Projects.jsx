@@ -8,51 +8,53 @@ gsap.registerPlugin(ScrollTrigger);
 const projectsData = [
   {
     id: 1,
-    title: "AI Course Platform",
+    title: "Nexus AI",
     category: "AI/ML",
     description:
-      "Full-stack LMS with integrated RAG-based AI Study Assistant. Real-time quiz tracking, automated grading, and personalized paths.",
-    tech: ["MERN", "OpenAI", "Pinecone"],
+      "Full-stack LMS with integrated RAG-based AI Study Assistant. Real-time quiz tracking and personalized paths.",
+    tech: ["MERN", "OpenAI", "LLM", "RAG"],
     featured: true,
     imageColor: "bg-indigo-900/40",
     liveLink: "#",
-    githubLink: "#",
+    githubLink:
+      "https://github.com/Muhammad-Saad-786/Enterprise-Project-SaaS.git",
   },
   {
     id: 2,
-    title: "Resume Optimizer",
+    title: "AI Image Generator",
     category: "AI/ML",
     description:
-      "OpenAI-powered ATS scanner that parses PDFs, compares against job descriptions, and provides keyword optimization.",
+      "React frontend with Express backend integrating OpenAI's Hugging Face API for dynamic image generation based on user prompts.",
     tech: ["React", "Express", "OpenAI"],
     featured: true,
     imageColor: "bg-emerald-900/40",
     liveLink: "#",
-    githubLink: "#",
+    githubLink: "https://github.com/Muhammad-Saad-786/Ai-Image-Gen.git",
   },
   {
     id: 3,
-    title: "TaskFlow Pro",
-    category: "Full Stack",
+    title: "React Portfolio",
+    category: "Frontend",
     description:
-      "Collaborative real-time task management with WebSockets, drag-and-drop hierarchy, and custom workflow states.",
-    tech: ["React", "Socket.io", "MongoDB"],
+      "Modern portfolio site built with React, featuring real-time contact form powered by Socket.io and MongoDB for message storage.",
+    tech: ["React", "Node.js", "Tailwind CSS"],
     featured: false,
     imageColor: "bg-amber-900/40",
     liveLink: "#",
-    githubLink: "#",
+    githubLink: "https://github.com/Muhammad-Saad-786/saad-dev-portfolio.git",
   },
   {
     id: 4,
-    title: "WebGL Portfolio",
-    category: "Frontend",
+    title: "Natours Learning Web App",
+    category: "MERN",
     description:
-      "Interactive 3D experience featuring custom shaders, camera controls, and smooth GSAP choreography.",
-    tech: ["Three.js", "React Three Fiber"],
+      "Natours is MERN stack web app for learning purposes. It features user authentication, tour booking, and an admin dashboard for managing tours and users.",
+    tech: ["Express", "MongoDB", "Node.js"],
     featured: false,
     imageColor: "bg-fuchsia-900/40",
     liveLink: "#",
-    githubLink: "#",
+    githubLink:
+      "https://github.com/Muhammad-Saad-786/Natours-Learning-Stage-MERN-.git",
   },
 ];
 
@@ -196,11 +198,12 @@ export default function Projects() {
 
                 <div className="flex items-center gap-6 pt-6 border-t border-white/10">
                   <a
-                    href={project.liveLink}
+                    href={project.githubLink}
                     className="flex items-center gap-2 group/btn"
+                    target="_blank"
                   >
                     <span className="text-sm font-semibold uppercase tracking-wider group-hover/btn:text-indigo-400 transition-colors">
-                      Live Site
+                      GitHub
                     </span>
                     <ArrowUpRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 group-hover/btn:text-indigo-400" />
                   </a>
@@ -241,7 +244,13 @@ export default function Projects() {
               </div>
 
               <div className="hidden md:flex items-center justify-end w-12 opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all duration-300">
-                <ArrowUpRight className="w-6 h-6 text-indigo-400" />
+                <a
+                  href={project.githubLink}
+                  className="text-indigo-400 hover:text-indigo-300 transition-colors"
+                  target="_blank"
+                >
+                  <ArrowUpRight className="w-6 h-6 text-indigo-400" />
+                </a>
               </div>
             </div>
           ))}

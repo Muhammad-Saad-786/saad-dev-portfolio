@@ -87,7 +87,7 @@ const Hero = () => {
             </h1>
           </div>
 
-          <p className="text-xl text-gray-600 font-medium max-w-lg leading-relaxed">
+          <p className="text-xl text-gray-600 font-medium max-w-lg leading-relaxed sm:mt-2">
             AI-Powered MERN Stack Developer | OpenAI & RAG Integration.
           </p>
 
