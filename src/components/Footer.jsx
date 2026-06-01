@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Send, User, MessageSquare, MapPin, Phone } from "lucide-react";
+import {
+  Mail,
+  Send,
+  User,
+  MessageSquare,
+  MapPin,
+  Phone,
+  MessageCircle,
+} from "lucide-react";
 
 const Footer = () => {
   const [formData, setFormData] = useState({
@@ -125,10 +133,10 @@ const Footer = () => {
             },
             { icon: MapPin, title: "Location", value: "Pakistan" },
             {
-              icon: Phone,
-              title: "WhatsApp",
-              value: "Chat on WhatsApp",
-              href: "https://wa.me/923095909052",
+              icon: MessageCircle,
+              title: "Telegram",
+              value: "@saad_asim",
+              href: "https://t.me/saad_asim",
               target: "_blank",
             },
           ].map((item, index) => (

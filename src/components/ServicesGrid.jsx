@@ -9,6 +9,7 @@ import {
   Sparkles,
   Database,
   Layout,
+  MessageSquare,
 } from "lucide-react";
 
 const services = [
@@ -41,12 +42,14 @@ const services = [
     border: "border-teal-100",
   },
   {
-    title: "WordPress Dev",
-    description: "Custom themes, plugins, and headless WordPress solutions.",
-    icon: AppWindow,
-    color: "from-gray-700 to-gray-900",
-    bg: "bg-gray-50",
-    border: "border-gray-200",
+    title: "Chatbot Development",
+    description:
+      "Custom AI chatbots with memory, tool calling & multi-platform deployment.",
+    icon: MessageSquare, // from lucide-react
+    color: "from-green-500 to-emerald-500",
+    bg: "bg-green-50",
+    border: "border-green-100",
+    sparkle: true,
   },
 ];
 

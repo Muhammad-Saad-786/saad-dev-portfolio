@@ -1,9 +1,115 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
-import { TypeAnimation } from "react-type-animation";
 import { ArrowRight, Mail } from "lucide-react";
 import { gsap } from "gsap";
 import { Link } from "react-router-dom";
+
+// Characters used for scrambling effect
+const CHARS =
+  "!@#$%^&*()_+-=[]{}|;:',.<>?/~`ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+// Custom hook for the decrypt effect
+function useDecryptText(texts, options = {}) {
+  const { interval = 3000, speed = 35, maxIterations = 10 } = options;
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [displayText, setDisplayText] = useState(texts[0]);
+  const [isScrambling, setIsScrambling] = useState(false);
+  const scrambleIntervalRef = useRef(null);
+  const rotationTimerRef = useRef(null);
+
+  const scramble = useCallback(
+    (targetText) => {
+      if (scrambleIntervalRef.current) {
+        clearInterval(scrambleIntervalRef.current);
+      }
+
+      setIsScrambling(true);
+
+      let charProgress = new Array(targetText.length).fill(0);
+      let frame = 0;
+      const maxFrames = targetText.length * 3;
+
+      scrambleIntervalRef.current = setInterval(() => {
+        frame++;
+
+        setDisplayText(
+          targetText
+            .split("")
+            .map((char, i) => {
+              if (char === " ") return " ";
+              charProgress[i] = Math.min(charProgress[i] + 1, maxIterations);
+              if (charProgress[i] >= maxIterations) return char;
+              return CHARS[Math.floor(Math.random() * CHARS.length)];
+            })
+            .join(""),
+        );
+
+        if (frame >= maxFrames) {
+          clearInterval(scrambleIntervalRef.current);
+          setDisplayText(targetText);
+          setIsScrambling(false);
+        }
+      }, speed);
+    },
+    [speed, maxIterations],
+  );
+
+  useEffect(() => {
+    const currentText = texts[currentIndex];
+    scramble(currentText);
+
+    if (rotationTimerRef.current) {
+      clearInterval(rotationTimerRef.current);
+    }
+
+    rotationTimerRef.current = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % texts.length);
+    }, interval);
+
+    return () => {
+      if (scrambleIntervalRef.current) {
+        clearInterval(scrambleIntervalRef.current);
+      }
+      if (rotationTimerRef.current) {
+        clearInterval(rotationTimerRef.current);
+      }
+    };
+  }, [currentIndex, texts, interval, scramble]);
+
+  return { displayText, isScrambling };
+}
+
+// DecryptText Component
+function DecryptText({
+  texts = ["Developer", "Designer", "Creator"],
+  className = "",
+  interval = 3000,
+  speed = 35,
+  cursor = true,
+}) {
+  const { displayText, isScrambling } = useDecryptText(texts, {
+    interval,
+    speed,
+  });
+
+  return (
+    <span className={`inline-flex items-center ${className}`}>
+      <span className="font-mono tracking-tight">{displayText}</span>
+      {cursor && (
+        <motion.span
+          animate={{ opacity: isScrambling ? [1, 0.3, 1] : [1, 0] }}
+          transition={{
+            duration: isScrambling ? 0.15 : 0.8,
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          className="inline-block w-[3px] h-[0.8em] bg-current ml-0.5 align-middle rounded-sm"
+        />
+      )}
+    </span>
+  );
+}
 
 const Hero = () => {
   const codeBracketRef = useRef(null);
@@ -33,6 +139,8 @@ const Hero = () => {
     }
   }, []);
 
+  const texts = ["Saad Asim", "a MERN Stack Developer", "an AI Enthusiast"];
+
   return (
     <section
       id="home"
@@ -51,38 +159,18 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="space-y-6"
         >
-          {/* Availability Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="inline-block px-4 py-2 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 font-medium text-sm"
-          >
-            <span className="mr-2">✨</span> Available for new projects
-          </motion.div>
-
           {/* Fixed height container to prevent layout shift */}
           <div className="space-y-2">
             <h1 className="text-3xl md:text-[44px] font-extrabold text-gray-900 tracking-tight leading-tight ">
               Hi, I'm <br />
               <div className="h-[1.2em] md:h-[1.3em] mt-2">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-teal-500 inline-block">
-                  <TypeAnimation
-                    sequence={[
-                      "Saad Asim",
-                      2000,
-                      "a MERN Stack Developer",
-                      2000,
-                      "an AI Enthusiast",
-                      2000,
-                    ]}
-                    wrapper="span"
-                    speed={50}
-                    repeat={Infinity}
-                    cursor={true}
-                    className="inline-block"
-                  />
-                </span>
+                <DecryptText
+                  texts={texts}
+                  interval={3000}
+                  speed={40}
+                  cursor={true}
+                  className="text-indigo-600"
+                />
               </div>
             </h1>
           </div>
