@@ -94,7 +94,7 @@ function DecryptText({
   });
 
   return (
-    <span className={`inline-flex items-center ${className}`}>
+    <span className={`inline-block w-full ${className}`}>
       <span className="font-mono tracking-tight">{displayText}</span>
       {cursor && (
         <motion.span
@@ -104,7 +104,7 @@ function DecryptText({
             repeat: Infinity,
             repeatType: "reverse",
           }}
-          className="inline-block w-[3px] h-[0.8em] bg-current ml-0.5 align-middle rounded-sm"
+          className="inline-block w-[3px] h-[0.8em] bg-current ml-1 -mb-[0.1em] align-baseline rounded-sm"
         />
       )}
     </span>
@@ -163,7 +163,7 @@ const Hero = () => {
           <div className="space-y-2">
             <h1 className="text-3xl md:text-[44px] font-extrabold text-gray-900 tracking-tight leading-tight ">
               Hi, I'm <br />
-              <div className="h-[1.2em] md:h-[1.3em] mt-2">
+              <div className="min-h-[2.4em] md:min-h-[1.3em] mt-2 flex items-start">
                 <DecryptText
                   texts={texts}
                   interval={3000}
@@ -175,7 +175,7 @@ const Hero = () => {
             </h1>
           </div>
 
-          <p className="text-xl text-gray-600 font-medium max-w-lg leading-relaxed ">
+          <p className="text-xl text-gray-600 font-medium max-w-lg leading-relaxed mt-2">
             AI-Powered MERN Stack Developer | OpenAI & RAG Integration.
           </p>
 

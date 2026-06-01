@@ -84,26 +84,29 @@ export default function Projects() {
         },
       );
 
-      // 2. Horizontal Scroll for Featured Projects
-      const panels = gsap.utils.toArray(".horizontal-panel");
-      if (panels.length > 0) {
-        gsap.to(panels, {
-          xPercent: -100 * (panels.length - 1),
-          ease: "none",
-          scrollTrigger: {
-            trigger: horizontalRef.current,
-            pin: true,
-            scrub: 1,
-            snap: 1 / (panels.length - 1),
-            start: "top top",
-            end: () => "+=" + window.innerWidth * panels.length,
-          },
-        });
-      }
+      // 2. Horizontal Scroll for Featured Projects (Desktop only)
+      let mm = gsap.matchMedia();
+      mm.add("(min-width: 1024px)", () => {
+        const panels = gsap.utils.toArray(".horizontal-panel");
+        if (panels.length > 0) {
+          gsap.to(panels, {
+            xPercent: -100 * (panels.length - 1),
+            ease: "none",
+            scrollTrigger: {
+              trigger: horizontalRef.current,
+              pin: true,
+              scrub: 1,
+              snap: 1 / (panels.length - 1),
+              start: "top top",
+              end: () => "+=" + window.innerWidth * panels.length,
+            },
+          });
+        }
+      });
 
       // 3. List Item Stagger Fade-up
       gsap.fromTo(
-        ".list-item",
+        ".project-list-item",
         { opacity: 0, y: 50 },
         {
           opacity: 1,
@@ -148,15 +151,15 @@ export default function Projects() {
         </h3>
       </div>
 
-      {/* HORIZONTAL PINNED SECTION (Featured) */}
+      {/* FEATURED SECTION */}
       <div
         ref={horizontalRef}
-        className="relative h-screen flex flex-nowrap overflow-hidden bg-[#0a0a0c]"
+        className="relative lg:h-screen flex flex-col lg:flex-row lg:flex-nowrap overflow-hidden lg:overflow-hidden bg-[#0a0a0c]"
       >
         {featured.map((project, i) => (
           <div
             key={project.id}
-            className="horizontal-panel w-screen h-full flex-shrink-0 flex items-center justify-center p-6 lg:p-24 relative group"
+            className="horizontal-panel w-full lg:w-screen h-auto lg:h-full flex-shrink-0 flex items-center justify-center p-6 lg:p-24 relative group border-b lg:border-b-0 border-white/10"
           >
             <div className="flex flex-col lg:flex-row items-center w-full max-w-7xl gap-12 lg:gap-24">
               {/* Image / Visual block */}
@@ -224,7 +227,7 @@ export default function Projects() {
           {regular.map((project) => (
             <div
               key={project.id}
-              className="list-item group relative flex flex-col md:flex-row md:items-center justify-between py-10 border-b border-white/10 hover:bg-white/[0.02] transition-colors gap-6 px-4 -mx-4 cursor-pointer"
+              className="project-list-item group relative flex flex-col md:flex-row md:items-center justify-between py-10 border-b border-white/10 hover:bg-white/5 transition-colors gap-6 px-4 -mx-4 cursor-pointer"
             >
               <div className="flex-1">
                 <h5 className="text-2xl font-bold group-hover:text-indigo-400 transition-colors duration-300">
