@@ -28,18 +28,18 @@ const projectsData = [
   {
     id: "zaza-store",
     title: "ZAZA Store",
-    tagline: "Premium E-Commerce Platform",
+    tagline: "Premium Platform for Buy & Sell",
     description:
-      "A full-stack marketplace with real-time inventory, Stripe payments, and AI-powered product recommendations.",
+      "A full-stack marketplace with real-time inventory, Escrow payments, and marketplace features.",
     longDescription:
-      "ZAZA Store is a production-grade e-commerce platform built from the ground up. It features a sophisticated product catalog with advanced filtering, real-time inventory management, Stripe payment processing, and an AI recommendation engine that learns from user behavior to suggest relevant products.",
+      "ZAZA Store is a production-grade platform built from the ground up. It features a sophisticated product catalog with advanced filtering, real-time inventory management, Escrow payment processing, and a comprehensive admin dashboard for managing users, products, and transactions. The platform is designed to handle high traffic and provide a seamless user experience.",
     category: "Full Stack",
-    tech: ["React", "Next.js", "Supabase", "Tailwind CSS", "Stripe", "OpenAI"],
+    tech: ["React", "Node js", "Supabase", "Tailwind CSS", "Escrow"],
     features: [
       "Authentication & Authorization",
       "Real-time Inventory",
-      "Stripe Payments",
-      "AI Recommendations",
+      "Escrow Payments",
+      "Player Checker",
       "Admin Dashboard",
       "Order Tracking",
     ],
@@ -54,9 +54,9 @@ const projectsData = [
     githubLink: "#",
     caseStudy: {
       overview:
-        "Built a scalable e-commerce solution handling thousands of concurrent users with real-time inventory synchronization.",
+        "Built a scalable solution handling thousands of concurrent users with real-time inventory synchronization.",
       architecture:
-        "Next.js frontend with ISR for product pages, Supabase for real-time database and auth, Stripe for payment processing, and OpenAI for recommendation engine.",
+        "Next.js frontend with ISR for product pages, Supabase for real-time database and auth, Escrow for payment processing, and OpenAI for recommendation engine.",
       challenges:
         "Real-time inventory sync across multiple sessions, preventing overselling during flash sales, and building a performant search with faceted filtering.",
       solutions:
@@ -73,22 +73,23 @@ const projectsData = [
     description:
       "An intelligent LMS with RAG-based AI study assistant, real-time quiz tracking, and personalized learning paths.",
     longDescription:
-      "MentorAI revolutionizes online learning by integrating a RAG-based AI assistant that can understand and explain course materials. Students can upload PDFs, ask questions, and receive contextual answers. The platform includes comprehensive admin, instructor, and student dashboards with analytics.",
+      "MentorAI revolutionizes online learning by integrating a RAG-based AI assistant that can understand and explain course materials. Students can ask questions, and receive contextual answers. The platform includes comprehensive admin, instructor, and student dashboards with analytics.",
     category: "AI/ML",
     tech: [
       "MERN",
       "OpenAI",
-      "Pinecone",
-      "Next.js",
-      "TypeScript",
+      "MongoDB",
+      "React.js",
+      "JavaScript",
+      "Express",
       "Tailwind CSS",
     ],
     features: [
       "RAG AI Study Assistant",
       "Role-based Dashboards",
       "Real-time Quiz System",
-      "PDF Content Analysis",
       "Progress Analytics",
+      "Graphs and Charts",
       "Course Management",
     ],
     metrics: [
@@ -115,44 +116,51 @@ const projectsData = [
     },
   },
   {
-    id: "mlbb-dashboard",
-    title: "MLBB Dashboard",
-    tagline: "Gaming Analytics Platform",
+    id: "verixa-ai",
+    title: "Verixa AI",
+    tagline: "Enterprise Document Intelligence Platform",
     description:
-      "Real-time gaming analytics dashboard with player statistics, match history, and performance visualizations.",
+      "AI-powered SaaS platform that unlocks knowledge from company documents, PDFs, and SOPs with natural language queries and page-level citations.",
     longDescription:
-      "A comprehensive analytics platform for Mobile Legends: Bang Bang players. Features include detailed match history, hero performance metrics, rank progression tracking, and comparative analytics against other players in the same tier.",
-    category: "Data Viz",
-    tech: ["React", "D3.js", "Node.js", "PostgreSQL", "Redis", "Docker"],
+      "Verixa AI is a cutting-edge SaaS platform designed to instantly unlock the knowledge trapped inside your company's documents, PDFs, employee handbooks, and SOPs. Instead of endless Ctrl+F searching, employees can ask natural language questions and get accurate, context-aware answers complete with page-level citations. Organizations using Verixa AI reduce HR and IT ticket volumes by up to 60%, empowering teams with an intelligent self-service knowledge portal.",
+    category: "AI SaaS",
+    tech: [
+      "Next.js",
+      "JavaScript",
+      "OpenAI",
+      "MongoDB",
+      "Express",
+      "Tailwind CSS",
+    ],
     features: [
-      "Real-time Stats",
-      "Match History",
-      "Hero Analytics",
-      "Rank Tracking",
-      "Data Visualizations",
-      "Player Comparison",
+      "Natural Language Q&A",
+      "Page-level Citations",
+      "Multi-document Search",
+      "Self-service Portal",
+      "HR/IT Ticket Reduction",
+      "Real-time Indexing",
     ],
     metrics: [
-      { label: "Data Points", value: "1M+" },
-      { label: "API Calls", value: "50k/d" },
-      { label: "Players", value: "10k+" },
+      { label: "Ticket Reduction", value: "60%" },
+      { label: "Accuracy Rate", value: "95%" },
+      { label: "Response Time", value: "<2s" },
     ],
-    previewColor: "from-emerald-50 to-teal-50",
-    accentColor: "#10b981",
+    previewColor: "from-violet-50 to-indigo-50",
+    accentColor: "#7c3aed",
     liveLink: "#",
     githubLink: "#",
     caseStudy: {
       overview:
-        "Built a high-performance analytics dashboard processing millions of data points with real-time visualizations.",
+        "Built an enterprise-grade document intelligence platform that uses RAG (Retrieval-Augmented Generation) to provide instant, accurate answers from company knowledge bases, reducing support tickets by up to 60%.",
       architecture:
-        "React with D3.js for custom charts, Node.js microservices for data processing, PostgreSQL for structured data, Redis for caching, and Docker for containerization.",
+        "Next.js frontend with App Router for optimal performance, OpenAI for natural language understanding and answer generation, Pinecone vector database for semantic search, Supabase for auth and structured data storage, and Stripe for subscription management.",
       challenges:
-        "Processing large datasets efficiently, rendering complex D3 visualizations without lag, and maintaining real-time data freshness.",
+        "Handling diverse document formats (PDFs, Word, Markdown) with accurate text extraction, maintaining context across large document collections, implementing reliable page-level citations, and ensuring sub-2 second response times at scale.",
       solutions:
-        "Implemented data aggregation pipelines, virtualized rendering for large datasets, and Redis caching with smart invalidation strategies.",
-      timeline: "3 months (MVP → Scale)",
+        "Built a multi-format document parser with intelligent chunking and overlap strategies, implemented hybrid search combining semantic and keyword matching for high accuracy, developed a custom citation engine that maps answers back to exact source pages, and optimized embeddings pipeline for real-time document indexing.",
+      timeline: "4 months (Research → Production Launch)",
       performance:
-        "Handles 1M+ data points, <100ms chart render time, 50k daily API calls",
+        "95% answer accuracy rate, <2 second response time, supports 1000+ page documents, 60% reduction in internal support tickets for early adopters",
     },
   },
 ];
