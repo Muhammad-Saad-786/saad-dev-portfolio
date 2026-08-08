@@ -52,9 +52,6 @@ const JourneyTimeline = () => {
           viewport={{ once: true }}
           className="text-center mb-24"
         >
-          <div className="inline-block px-4 py-2 rounded-full bg-blue-50 text-blue-600 font-bold mb-4 border border-blue-100 uppercase tracking-widest text-xs">
-            My Journey
-          </div>
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
             Professional <span className="gradient-text">Timeline</span>
           </h2>

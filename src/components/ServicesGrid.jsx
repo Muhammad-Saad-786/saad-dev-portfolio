@@ -80,9 +80,6 @@ const ServicesGrid = () => {
           viewport={{ once: true }}
           className="mb-16 text-center"
         >
-          <div className="inline-block px-4 py-2 rounded-full bg-emerald-50 text-emerald-600 font-bold mb-4 border border-emerald-100 uppercase tracking-widest text-xs">
-            What I Offer
-          </div>
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
             Services & Expertise
           </h2>
@@ -127,10 +124,6 @@ const ServicesGrid = () => {
                     <p className="text-gray-600 font-medium leading-relaxed">
                       {service.description}
                     </p>
-                  </div>
-
-                  <div className="mt-8 flex items-center text-sm font-bold text-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity translate-y-4 group-hover:translate-y-0">
-                    Learn More <Code className="ml-2 w-4 h-4" />
                   </div>
                 </div>
               </Tilt>
