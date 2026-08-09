@@ -10,11 +10,13 @@ import Footer from "./components/Footer";
 import SmoothScroll from "./components/SmoothScroll";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage";
+import ScrollToTop from "./components/ScrollToTop";
 function App() {
   return (
     <SmoothScroll>
       <div className="min-h-screen bg-[#F8F9FA] text-gray-900 font-sans cursor-default relative">
         <Navbar />
+        <ScrollToTop />
 
         <main className="w-full">
           <Routes>

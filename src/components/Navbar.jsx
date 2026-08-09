@@ -12,71 +12,35 @@ const navLinks = [
   { name: "Contact", to: "/contact" },
 ];
 
-// Magnetic hover for nav items
-const MagneticLink = ({ children, to, isActive }) => {
-  const ref = useRef(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
-    setPosition({ x: x * 0.2, y: y * 0.2 });
-  };
-
-  const handleMouseLeave = () => {
-    setPosition({ x: 0, y: 0 });
-  };
-
+// Simple NavLink without magnetic effect
+const NavLink = ({ children, to, isActive }) => {
   return (
-    <motion.div
-      ref={ref}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      animate={{ x: position.x, y: position.y }}
-      transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
-      className="relative"
+    <Link
+      to={to}
+      className={`relative px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-300 ${
+        isActive ? "text-[#6a77d5]" : "text-gray-500 hover:text-gray-900"
+      }`}
     >
-      <Link
-        to={to}
-        className={`relative px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-300 ${
-          isActive ? "text-[#6a77d5]" : "text-gray-500 hover:text-gray-900"
-        }`}
-      >
-        {children}
-        {isActive && (
-          <motion.div
-            layoutId="navbar-active"
-            className="absolute inset-0 bg-[#6a77d5]/8 rounded-lg -z-10"
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          />
-        )}
-      </Link>
-    </motion.div>
+      {children}
+      {isActive && (
+        <motion.div
+          layoutId="navbar-active"
+          className="absolute inset-0 bg-[#6a77d5]/8 rounded-lg -z-10"
+          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+        />
+      )}
+    </Link>
   );
 };
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [hidden, setHidden] = useState(false);
-  const lastScrollY = useRef(0);
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      // Determine scroll direction
-      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
-        setHidden(true);
-      } else {
-        setHidden(false);
-      }
-
-      setScrolled(currentScrollY > 20);
-      lastScrollY.current = currentScrollY;
+      setScrolled(window.scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -104,20 +68,16 @@ const Navbar = () => {
     <>
       <motion.nav
         initial={{ y: 0 }}
-        animate={{ y: hidden ? "-100%" : "0%" }}
-        transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? "top-3 mx-auto max-w-[90%] lg:max-w-4xl"
-            : "top-0 max-w-full"
-        }`}
+        animate={{ y: 0 }}
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+        style={{ padding: scrolled ? "8px 0" : "16px 0" }}
       >
         {/* Main Nav Container */}
         <div
-          className={`relative transition-all duration-500 ${
+          className={`transition-all duration-500 mx-auto ${
             scrolled
-              ? "bg-white/70 backdrop-blur-xl border border-gray-200/50 rounded-2xl shadow-[0_8px_32px_-8px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.03)]"
-              : "bg-transparent"
+              ? "max-w-[90%] lg:max-w-4xl bg-white/70 backdrop-blur-xl border border-gray-200/50 rounded-2xl shadow-[0_8px_32px_-8px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.03)]"
+              : "max-w-full bg-transparent"
           }`}
         >
           <div className="px-5 lg:px-6 py-3 flex items-center justify-between">
@@ -157,12 +117,12 @@ const Navbar = () => {
                     ease: [0.25, 0.1, 0.25, 1],
                   }}
                 >
-                  <MagneticLink
+                  <NavLink
                     to={link.to}
                     isActive={location.pathname === link.to}
                   >
                     {link.name}
-                  </MagneticLink>
+                  </NavLink>
                 </motion.div>
               ))}
             </div>

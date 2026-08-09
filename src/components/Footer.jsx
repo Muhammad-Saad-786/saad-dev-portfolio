@@ -34,9 +34,10 @@ const Footer = () => {
   const sectionRef = useRef(null);
 
   // GSAP Animations
+
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Header reveal
+      // Header reveal - ADD immediate render check
       gsap.fromTo(
         ".footer-header-text",
         { y: 60, opacity: 0 },
@@ -48,7 +49,9 @@ const Footer = () => {
           ease: "power4.out",
           scrollTrigger: {
             trigger: ".footer-header",
-            start: "top 80%",
+            start: "top 90%",
+            once: true,
+            toggleActions: "play none none none",
           },
         },
       );
@@ -64,10 +67,15 @@ const Footer = () => {
           ease: "power3.out",
           scrollTrigger: {
             trigger: ".footer-form",
-            start: "top 85%",
+            start: "top 95%",
+            once: true,
+            toggleActions: "play none none none",
           },
         },
       );
+
+      // Refresh ScrollTrigger
+      ScrollTrigger.refresh();
     }, sectionRef);
 
     return () => ctx.revert();

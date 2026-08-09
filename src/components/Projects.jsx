@@ -694,18 +694,6 @@ const Projects = () => {
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="projects-header mb-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-sm border border-gray-200/60 rounded-full shadow-sm mb-8"
-          >
-            <Sparkles className="w-4 h-4 text-[#6a77d5]" />
-            <span className="text-sm font-bold text-gray-500 uppercase tracking-[0.2em]">
-              Featured Work
-            </span>
-          </motion.div>
-
           <div className="overflow-hidden">
             <h2 className="projects-header-text text-5xl md:text-7xl font-extrabold text-gray-900 tracking-tight leading-[1.05]">
               Selected
