@@ -50,8 +50,8 @@ const projectsData = [
     ],
     previewColor: "from-amber-50 to-orange-50",
     accentColor: "#f59e0b",
-    liveLink: "#",
-    githubLink: "#",
+    liveLink: "https://zaza-store-three.vercel.app/",
+    githubLink: "https://github.com/Muhammad-Saad-786/zaza-store.git",
     caseStudy: {
       overview:
         "Built a scalable solution handling thousands of concurrent users with real-time inventory synchronization.",
@@ -64,6 +64,47 @@ const projectsData = [
       timeline: "4 months (Design → Deployment)",
       performance:
         "98 Lighthouse score, <2s initial load, 60fps animations, 99.9% uptime SLA",
+    },
+  },
+  {
+    id: "arcade-bazaar",
+    title: "Arcane Bazaar",
+    tagline: "Global Gaming Marketplace",
+    description:
+      "A global platform for buying and selling accounts, top-ups, boosting, items, and digital products across 130+ games with full escrow protection.",
+    longDescription:
+      "Arcane Bazaar is a comprehensive gaming marketplace connecting buyers and sellers from around the world. With support for 130+ games, users can trade accounts, purchase top-ups, hire boosting services, and exchange in-game items securely. The platform features 10+ payment methods with auto-delivery APIs for instant digital item delivery, full escrow protection, and mandatory Persona ID or passport verification for sellers to ensure transaction safety.",
+    category: "Marketplace",
+    tech: ["React", "Node.js", "Tailwind CSS", "Supabase", "Escrow"],
+    features: [
+      "130+ Games Supported",
+      "Auto-Delivery API",
+      "Escrow Protection",
+      "Seller Verification",
+      "10+ Payment Methods",
+      "Global Transactions",
+    ],
+    metrics: [
+      { label: "Games", value: "130+" },
+      { label: "Payment Methods", value: "10+" },
+      { label: "Countries", value: "40+" },
+    ],
+    previewColor: "from-orange-50 to-red-50",
+    accentColor: "#f97316",
+    liveLink: "https://arcane-bazaar.vercel.app/",
+    githubLink: "https://github.com/Muhammad-Saad-786/arcane-bazaar.git",
+    caseStudy: {
+      overview:
+        "Built a secure global gaming marketplace supporting 130+ games with automated delivery systems, escrow protection, and comprehensive seller verification.",
+      architecture:
+        "React frontend with real-time inventory updates, Node.js backend for API processing, Supabase for database and authentication, Tailwind CSS for responsive design, and integrated payment gateways with auto-delivery APIs for instant digital item fulfillment.",
+      challenges:
+        "Implementing secure escrow system for high-value transactions, integrating 10+ payment methods with different APIs, building auto-delivery system for instant digital items, and managing seller verification with Persona ID integration across multiple countries.",
+      solutions:
+        "Developed multi-step escrow system with dispute resolution, created unified payment abstraction layer for seamless integration, implemented queue-based auto-delivery with retry logic, and built progressive seller verification system compliant with international KYC standards.",
+      timeline: "5 months (Development → Global Launch)",
+      performance:
+        "99.5% transaction success rate, <3s auto-delivery time, supports 40+ countries, 10+ concurrent payment gateways",
     },
   },
   {
@@ -99,8 +140,8 @@ const projectsData = [
     ],
     previewColor: "from-violet-50 to-indigo-50",
     accentColor: "#7c3aed",
-    liveLink: "#",
-    githubLink: "#",
+    liveLink: "https://mentorai-sandy.vercel.app/",
+    githubLink: "https://github.com/Muhammad-Saad-786/MentorAI.git",
     caseStudy: {
       overview:
         "Developed an AI-native learning platform that makes course materials interactive through RAG-powered conversations.",
@@ -147,8 +188,8 @@ const projectsData = [
     ],
     previewColor: "from-violet-50 to-indigo-50",
     accentColor: "#7c3aed",
-    liveLink: "#",
-    githubLink: "#",
+    liveLink: "https://verixa-ai.vercel.app/",
+    githubLink: "https://github.com/Muhammad-Saad-786/Verixa-AI.git",
     caseStudy: {
       overview:
         "Built an enterprise-grade document intelligence platform that uses RAG (Retrieval-Augmented Generation) to provide instant, accurate answers from company knowledge bases, reducing support tickets by up to 60%.",
@@ -161,6 +202,47 @@ const projectsData = [
       timeline: "4 months (Research → Production Launch)",
       performance:
         "95% answer accuracy rate, <2 second response time, supports 1000+ page documents, 60% reduction in internal support tickets for early adopters",
+    },
+  },
+  {
+    id: "ai-image-generator",
+    title: "AI Image Generator",
+    tagline: "Prompt-to-Image Generation Platform",
+    description:
+      "A web app for generating high-quality images from text prompts with easy download functionality.",
+    longDescription:
+      "A powerful web application that transforms text prompts into stunning, high-quality images using OpenAI's advanced image generation models. Users can describe their vision in natural language, generate multiple image variations, preview results in real-time, and download their creations with a single click. The platform features a sleek, intuitive interface designed for both casual users and creative professionals.",
+    category: "AI/ML",
+    tech: ["React", "Express", "Node.js", "OpenAI", "MongoDB", "Tailwind CSS"],
+    features: [
+      "Text-to-Image Generation",
+      "Multiple Image Variations",
+      "High-Quality Downloads",
+      "Prompt History",
+      "Image Gallery",
+      "User Authentication",
+    ],
+    metrics: [
+      { label: "Images Generated", value: "10k+" },
+      { label: "Generation Time", value: "<10s" },
+      { label: "User Rating", value: "4.8/5" },
+    ],
+    previewColor: "from-blue-50 to-cyan-50",
+    accentColor: "#06b6d4",
+    liveLink: "https://ai-image-dev.netlify.app/",
+    githubLink: "https://github.com/Muhammad-Saad-786/Ai-Image-Gen.git",
+    caseStudy: {
+      overview:
+        "Developed a seamless text-to-image generation platform that leverages OpenAI's DALL-E models to create high-quality images from user prompts.",
+      architecture:
+        "React frontend with real-time generation previews, Express.js backend for API handling, OpenAI API integration for image generation, MongoDB for storing user data and generation history, and Tailwind CSS for responsive design.",
+      challenges:
+        "Optimizing API calls for cost efficiency, managing concurrent generation requests, implementing efficient image storage and delivery, and building a responsive preview system.",
+      solutions:
+        "Implemented request queuing and caching, used lazy loading for image galleries, optimized image compression for faster downloads, and built a progressive image loading system with skeleton placeholders.",
+      timeline: "2 months (MVP → Production)",
+      performance:
+        "<10s generation time, 10k+ images generated, 4.8/5 user rating, 99% uptime",
     },
   },
 ];
