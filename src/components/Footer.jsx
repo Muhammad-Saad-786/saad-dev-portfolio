@@ -1,7 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   Mail,
   Send,
@@ -18,9 +17,6 @@ import {
   Terminal,
   Heart,
 } from "lucide-react";
-import { href } from "react-router-dom";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
   const [formData, setFormData] = useState({
@@ -32,54 +28,6 @@ const Footer = () => {
   const [submitStatus, setSubmitStatus] = useState(null);
   const [focusedField, setFocusedField] = useState(null);
   const sectionRef = useRef(null);
-
-  // GSAP Animations
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Header reveal - ADD immediate render check
-      gsap.fromTo(
-        ".footer-header-text",
-        { y: 60, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          stagger: 0.1,
-          ease: "power4.out",
-          scrollTrigger: {
-            trigger: ".footer-header",
-            start: "top 90%",
-            once: true,
-            toggleActions: "play none none none",
-          },
-        },
-      );
-
-      // Form reveal
-      gsap.fromTo(
-        ".footer-form",
-        { y: 40, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ".footer-form",
-            start: "top 95%",
-            once: true,
-            toggleActions: "play none none none",
-          },
-        },
-      );
-
-      // Refresh ScrollTrigger
-      ScrollTrigger.refresh();
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
 
   const handleChange = (e) => {
     setFormData({
